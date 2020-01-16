@@ -1,14 +1,9 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import React from 'react'
 
-const Display = () => {
-    const [chain, setChain] = useState([])
 
-    useEffect(() => 
-        axios.get("http://localhost:5000/chain")
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err))
-    ,[])
+import Displaytest from './Displaytest'
+
+const Display = (props) => {
 
     // * Allow the user to enter, save, or change the `id` used for the program
     // * Display the current balance for that user
@@ -16,6 +11,7 @@ const Display = () => {
     return(
         <div>
             <p>from Display</p>
+            <Displaytest chain={props.chain} user={props.user} />
         </div>
     )
 }
